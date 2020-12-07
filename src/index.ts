@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 import { loadScript, createMetrika, startTracking } from './helpers'
-import {Config} from "./type";
+import {Config} from "./types";
 const debug = process.env.NODE_ENV === "production"
 
 export const defaultConfig: Config = {

@@ -1,4 +1,4 @@
-import {Config, YaMetrika} from "./type";
+import {Config, YaMetrika} from "./types";
 const debug = process.env.NODE_ENV === "production"
 import Vue from 'vue';
 import {Route} from "vue-router/types/router";

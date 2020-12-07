@@ -1,4 +1,5 @@
 import Router from 'vue-router';
+import Vue, { PluginFunction } from 'vue';
 
 export interface Options {
   accurateTrackBounce?: boolean,

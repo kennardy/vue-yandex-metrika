@@ -7,10 +7,18 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "target": "es5"
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "lib": ["esnext", "dom"]
   },
+  "include": [
+    "src/types.ts"
+  ],
   "files": [
     "src/index.ts",
-    "src/type.d.ts"
+    "src/types.ts"
   ]
 }
