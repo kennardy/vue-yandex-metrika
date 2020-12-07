@@ -11,7 +11,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/s00d/vue-yandex-metrika-ts?style=social)](https://github.com/s00d/vue-yandex-metrika-ts)
 
 
-# Vue Yandex Metrika with TypeScrypt
+# Vue Yandex Metrika Plugin with TypeScript
 
 **vue-yandex-metrika-ts** allows you to send data about visited pages to [Yandex Metrika].
 
