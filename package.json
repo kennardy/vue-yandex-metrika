@@ -1,0 +1,53 @@
+{
+  "name": "vue-yandex-metrika-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib && rimraf dist",
+    "prepublish": "npm run clean && npm run build",
+    "prepare": "npm run build",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s00d/vue-yandex-metrika-ts.git"
+  },
+  "keywords": [
+    "vue",
+    "tracking",
+    "Yandex",
+    "yandex",
+    "Yandex Metrica",
+    "yandex metrica",
+    "Yandex Metrika",
+    "yandex metrika",
+    "yandex tracking",
+    "vue-yandex-metrika",
+    "vue-yandex-metrica",
+    "Яндекс",
+    "яндекс",
+    "Яндекс Метрика",
+    "яндекс метрика"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s00d/vue-yandex-metrika-ts/issues"
+  },
+  "homepage": "https://github.com/s00d/vue-yandex-metrika-ts",
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@types/rimraf": "^3.0.0",
+    "@types/vue": "^2.0.0",
+    "@types/vue-router": "^2.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.0.5"
+  },
+  "peerDependencies": {
+    "vue": ">=2.0.0"
+  }
+}
