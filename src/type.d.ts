@@ -45,7 +45,10 @@ export interface Config {
 
 declare global {
   interface Window {
-    yaCounters: {[key: string]: YaMetrika };
+    yaCounters?: {[key: string]: YaMetrika };
+    Ya: {
+      Metrika2: YaMetrikaInit
+    }
   }
 }
 
@@ -60,8 +63,11 @@ declare interface SubParams {
   title?: string
 }
 
+interface YaMetrikaInit {
+  new (params: YaOptions): YaMetrika;
+}
+
 export declare class YaMetrika {
-  public Metrika2(params: YaOptions): YaMetrika;
   public addFileExtension(vals: string|Array<string>): void;
   public extLink(url: string, options?:SubParams): void;
   public file(url: string, options?:SubParams): void;
@@ -73,10 +79,6 @@ export declare class YaMetrika {
   public replacePhones(): void;
   public setUserID(userID: string): void;
   public userParams(parameters: {[key: string]: any}): void;
-}
-
-declare global {
-  class Ya extends YaMetrika {}
 }
 
 declare module 'vue/types/vue' {

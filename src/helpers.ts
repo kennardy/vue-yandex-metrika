@@ -21,37 +21,14 @@ export function loadScript (callback: () => void, scriptSrc = 'https://mc.yandex
 
 
 export function createMetrika (v: typeof Vue, config: Config) {
-  if (!debug) {
-    // Creates Metrika
-    const init = {
-      id: config.id,
-      ...config.options
-    }
-    const metrika = (new Ya).Metrika2(init)
-    window.yaCounters[`${config.id}`] = metrika
-    return v.prototype.$metrika = v.$metrika = metrika
-
-  } else {
-
-    // Mock metrika
-    console.warn('[vue-yandex-metrika] Tracking is disabled, because env option is not "production"')
-    if (config.debug) {console.warn('[vue-yandex-metrika] DEBUG is true: you\'ll see all API calls in the console')}
-
-    return v.prototype.$metrika = v.$metrika = {
-      Metrika2() { return new Ya },
-      addFileExtension() {if (config.debug) {console.log('[vue-yandex-metrika] addFileExtension:', arguments)}},
-      extLink() {if (config.debug) {console.log('[vue-yandex-metrika] extLink:', arguments)}},
-      file() {if (config.debug) {console.log('[vue-yandex-metrika] file:', arguments)}},
-      getClientID() {if (config.debug) {console.log('[vue-yandex-metrika] getClientID:', arguments)}},
-      hit() {if (config.debug) {console.log('[vue-yandex-metrika] hit:', arguments)}},
-      notBounce() {if (config.debug) {console.log('[vue-yandex-metrika] notBounce:', arguments)}},
-      params() {if (config.debug) {console.log('[vue-yandex-metrika] params:', arguments)}},
-      reachGoal() {if (config.debug) {console.log('[vue-yandex-metrika] reachGoal:', arguments)}},
-      replacePhones() {if (config.debug) {console.log('[vue-yandex-metrika] replacePhones:', arguments)}},
-      setUserID() {if (config.debug) {console.log('[vue-yandex-metrika] setUserID:', arguments)}},
-      userParams() {if (config.debug) {console.log('[vue-yandex-metrika] userParams:', arguments)}}
-    }
+  const init = {
+    id: config.id,
+    ...config.options
   }
+  const metrika = new window.Ya.Metrika2(init);
+  if(!window.yaCounters) window.yaCounters = {}
+  window.yaCounters[`${config.id}`] = metrika
+  return v.prototype.$metrika = v.$metrika = metrika
 }
 
 
