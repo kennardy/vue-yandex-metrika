@@ -91,9 +91,3 @@ declare module 'vue/types/vue' {
     $metrika: YaMetrika
   }
 }
-
-declare module 'vue/types/options' {
-  interface ComponentOptions<V extends Vue> {
-    $metrika: YaMetrika,
-  }
-}

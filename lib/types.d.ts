@@ -1,5 +1,4 @@
 import Router from 'vue-router';
-import Vue from 'vue';
 export interface Options {
     accurateTrackBounce?: boolean;
     childIframe?: boolean;
@@ -97,11 +96,6 @@ declare module 'vue/types/vue' {
         $metrika: YaMetrika;
     }
     interface Vue {
-        $metrika: YaMetrika;
-    }
-}
-declare module 'vue/types/options' {
-    interface ComponentOptions<V extends Vue> {
         $metrika: YaMetrika;
     }
 }
