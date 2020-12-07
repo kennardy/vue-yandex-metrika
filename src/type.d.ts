@@ -81,12 +81,18 @@ export declare class YaMetrika {
   public userParams(parameters: {[key: string]: any}): void;
 }
 
+
 declare module 'vue/types/vue' {
   interface VueConstructor {
     $metrika: YaMetrika
   }
-
   interface Vue {
+    $metrika: YaMetrika
+  }
+}
+
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
     $metrika: YaMetrika,
   }
 }
