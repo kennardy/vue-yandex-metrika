@@ -86,7 +86,6 @@ export function createMetrika(app) {
                 console.log('[vue-yandex-metrika] userParams:', arguments);
             } }
         };
-        console.log(app.config.globalProperties.$metrika);
         return app.config.globalProperties.$metrika;
     }
 }
