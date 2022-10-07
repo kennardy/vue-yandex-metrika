@@ -1,4 +1,4 @@
-import Router from 'vue-router';
+import {Router} from 'vue-router';
 export interface Options {
     accurateTrackBounce?: boolean;
     childIframe?: boolean;
@@ -91,11 +91,14 @@ export declare class YaMetrika {
         [key: string]: any;
     }): void;
 }
-declare module 'vue/types/vue' {
+declare module '@vue/runtime-core' {
     interface VueConstructor {
         $metrika: YaMetrika;
     }
     interface Vue {
+        $metrika: YaMetrika;
+    }
+    interface ComponentCustomProperties {
         $metrika: YaMetrika;
     }
 }
