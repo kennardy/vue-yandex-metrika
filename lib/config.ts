@@ -1,4 +1,6 @@
-let config = {
+import { Config } from "./types"
+
+let config: Config = {
     id: null,
     options: {
         accurateTrackBounce: true,

@@ -1,1 +1,4 @@
-export default function install(app: any, options?: {}): void;
+import { App } from 'vue';
+import { Config, YaMetrika } from './types';
+export declare function initYandexMetrika(app: App, options: Config): void;
+export declare function useYandexMetrika(): YaMetrika;

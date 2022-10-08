@@ -1,11 +1,15 @@
 /* istanbul ignore file */
+import { App } from 'vue'
 import config from './config'
+import { getMetrikaInstance } from './getMetrikaInstance'
+import { YaMetrika } from './types'
 
 
-export function updateConfig (params) {
+export function updateConfig (params: Record<string, any>) {
 
     // Merges default config and plugin options
-    Object.keys(params).forEach(function (key) {config[key] = params[key]})
+    const _config = config as Record<string, any>
+    Object.keys(params).forEach(function (key) {_config[key] = params[key]})
 }
 
 
@@ -17,7 +21,7 @@ export function checkConfig () {
     if (!config.router && config.env !== 'production') {return console.warn('[vue-yandex-metrika] Router is not passed, autotracking is disabled')}
 }
 
-export function loadScript (callback, scriptSrc=config.scriptSrc) {
+export function loadScript (callback:() => void, scriptSrc=config.scriptSrc) {
     var head = document.head || document.getElementsByTagName('head')[0]
     const script = document.createElement('script')
 
@@ -31,7 +35,7 @@ export function loadScript (callback, scriptSrc=config.scriptSrc) {
 }
 
 
-export function createMetrika (app) {
+export function createMetrika (app: App): YaMetrika {
 
     if (config.env === "production") {
 
@@ -40,16 +44,15 @@ export function createMetrika (app) {
             id: config.id,
             ...config.options
         }
-        const metrika = new Ya.Metrika2(init)
-        window[`yaCounter${config.id}`] = metrika
-        return app.config.globalProperties.$metrika = metrika
+        const metrika = getMetrikaInstance(init)
+        return app.config.globalProperties.$yandexMetrika = metrika
 
     } else {
 
         // Mock metrika
         console.warn('[vue-yandex-metrika] Tracking is disabled, because env option is not "production"')
         if (config.debug) {console.warn('[vue-yandex-metrika] DEBUG is true: you\'ll see all API calls in the console')}
-        app.config.globalProperties.$metrika = {
+        app.config.globalProperties.$yandexMetrika = {
             addFileExtension() {if (config.debug) {console.log('[vue-yandex-metrika] addFileExtension:', arguments)}},
             extLink() {if (config.debug) {console.log('[vue-yandex-metrika] extLink:', arguments)}},
             file() {if (config.debug) {console.log('[vue-yandex-metrika] file:', arguments)}},
@@ -62,19 +65,19 @@ export function createMetrika (app) {
             setUserID() {if (config.debug) {console.log('[vue-yandex-metrika] setUserID:', arguments)}},
             userParams() {if (config.debug) {console.log('[vue-yandex-metrika] userParams:', arguments)}}
         }
-        return app.config.globalProperties.$metrika
+        return app.config.globalProperties.$yandexMetrika as YaMetrika
     }
 }
 
 
-export function startTracking (metrika) {
+export function startTracking (metrika: YaMetrika) {
 
     // Starts autotracking if router is passed
     if (config.router) {
         config.router.afterEach(function (to, from) {
 
             // check if route is in ignoreRoutes
-            if (config.ignoreRoutes.indexOf(to.name) > -1) {return}
+            if (config.ignoreRoutes && config.ignoreRoutes.indexOf(String(to.name)) > -1) {return}
 
             // do not track page visit if previous and next routes URLs match
             if (config.skipSamePath && to.path == from.path) {return}

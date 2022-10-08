@@ -1,5 +1,7 @@
-export function updateConfig(params: any): void;
-export function checkConfig(): void;
-export function loadScript(callback: any, scriptSrc?: string): void;
-export function createMetrika(app: any): any;
-export function startTracking(metrika: any): void;
+import { App } from 'vue';
+import { YaMetrika } from './types';
+export declare function updateConfig(params: Record<string, any>): void;
+export declare function checkConfig(): void;
+export declare function loadScript(callback: () => void, scriptSrc?: "https://mc.yandex.ru/metrika/tag.js"): void;
+export declare function createMetrika(app: App): YaMetrika;
+export declare function startTracking(metrika: YaMetrika): void;

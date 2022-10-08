@@ -9,11 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-/* istanbul ignore file */
 import config from './config';
+import { getMetrikaInstance } from './getMetrikaInstance';
 export function updateConfig(params) {
     // Merges default config and plugin options
-    Object.keys(params).forEach(function (key) { config[key] = params[key]; });
+    var _config = config;
+    Object.keys(params).forEach(function (key) { _config[key] = params[key]; });
 }
 export function checkConfig() {
     // Checks if config is valid
@@ -41,9 +42,8 @@ export function createMetrika(app) {
     if (config.env === "production") {
         // Creates Metrika
         var init = __assign({ id: config.id }, config.options);
-        var metrika = new Ya.Metrika2(init);
-        window["yaCounter".concat(config.id)] = metrika;
-        return app.config.globalProperties.$metrika = metrika;
+        var metrika = getMetrikaInstance(init);
+        return app.config.globalProperties.$yandexMetrika = metrika;
     }
     else {
         // Mock metrika
@@ -51,7 +51,7 @@ export function createMetrika(app) {
         if (config.debug) {
             console.warn('[vue-yandex-metrika] DEBUG is true: you\'ll see all API calls in the console');
         }
-        app.config.globalProperties.$metrika = {
+        app.config.globalProperties.$yandexMetrika = {
             addFileExtension: function () { if (config.debug) {
                 console.log('[vue-yandex-metrika] addFileExtension:', arguments);
             } },
@@ -86,7 +86,7 @@ export function createMetrika(app) {
                 console.log('[vue-yandex-metrika] userParams:', arguments);
             } }
         };
-        return app.config.globalProperties.$metrika;
+        return app.config.globalProperties.$yandexMetrika;
     }
 }
 export function startTracking(metrika) {
@@ -94,7 +94,7 @@ export function startTracking(metrika) {
     if (config.router) {
         config.router.afterEach(function (to, from) {
             // check if route is in ignoreRoutes
-            if (config.ignoreRoutes.indexOf(to.name) > -1) {
+            if (config.ignoreRoutes && config.ignoreRoutes.indexOf(String(to.name)) > -1) {
                 return;
             }
             // do not track page visit if previous and next routes URLs match
