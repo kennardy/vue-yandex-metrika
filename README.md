@@ -78,11 +78,41 @@ Using in script
 <script>
 ```
 
+OOptions
+```javascript
+/* If you want to override the default options,
+ * then add this to the initialization function in main.js
+ */
+ 
+ // default options
+options: {
+	accurateTrackBounce: true,
+	clickmap: true,
+	defer: false,
+	ecommerce: false,
+	params: [],
+	userParams: {},
+	trackHash: false,
+	trackLinks: true,
+	type: 0,
+	webvisor: false,
+	triggerEvent: false
+},
+```
+
+  
+  
 
 [yandex metrika]: https://metrika.yandex.ru
 
+  
+
 [yarn]: https://yarnpkg.com
 
+  
+
 [npm]: https://npmjs.com
+
+  
 
 [metrika api]: https://yandex.ru/support/metrika/objects/method-reference.html
