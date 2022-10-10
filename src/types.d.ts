@@ -94,13 +94,13 @@ export declare class YaMetrika {
 }
 declare module '@vue/runtime-core' {
     interface VueConstructor {
-        $metrika: YaMetrika;
+        $yandexMetrika: YaMetrika;
     }
     interface Vue {
-        $metrika: YaMetrika;
+        $yandexMetrika: YaMetrika;
     }
     interface ComponentCustomProperties {
-        $metrika: YaMetrika;
+        $yandexMetrika: YaMetrika;
     }
 }
 export {};
