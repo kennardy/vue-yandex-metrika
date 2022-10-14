@@ -1,5 +1,5 @@
-import { App } from 'vue';
-import { YaMetrika } from './types';
+import { App } from "vue";
+import { YaMetrika } from "./types";
 export declare function updateConfig(params: Record<string, any>): void;
 export declare function checkConfig(): void;
 export declare function loadScript(callback: () => void, scriptSrc?: "https://mc.yandex.ru/metrika/tag.js"): void;

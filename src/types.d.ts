@@ -1,4 +1,4 @@
-import { Router } from 'vue-router';
+import { Router } from "vue-router";
 export interface Options {
     accurateTrackBounce?: boolean;
     childIframe?: boolean;
@@ -39,7 +39,7 @@ export interface Config {
         triggerEvent?: boolean;
     };
     router?: null | Router;
-    scriptSrc: 'https://mc.yandex.ru/metrika/tag.js';
+    scriptSrc: "https://mc.yandex.ru/metrika/tag.js";
     debug?: boolean;
     env: string;
     ignoreRoutes?: Array<string>;
@@ -92,7 +92,22 @@ export declare class YaMetrika {
         [key: string]: any;
     }): void;
 }
-declare module '@vue/runtime-core' {
+export declare class EmptyYaMetrika implements YaMetrika {
+    config: Config;
+    constructor();
+    addFileExtension(): void;
+    extLink(): void;
+    file(): void;
+    getClientID(): void;
+    hit(): void;
+    notBounce(): void;
+    params(): void;
+    reachGoal(): void;
+    replacePhones(): void;
+    setUserID(): void;
+    userParams(): void;
+}
+declare module "@vue/runtime-core" {
     interface VueConstructor {
         $yandexMetrika: YaMetrika;
     }

@@ -1,6 +1,8 @@
-import { updateConfig, checkConfig, loadScript, createMetrika, startTracking } from './helpers';
+import { updateConfig, checkConfig, loadScript, createMetrika, startTracking, } from "./helpers";
+import { EmptyYaMetrika } from "./types";
 var _metrikaInstance = null;
 export function initYandexMetrika(app, options) {
+    app.config.globalProperties.$yandexMetrika = new EmptyYaMetrika();
     updateConfig(options);
     checkConfig();
     loadScript(function () {
@@ -12,5 +14,8 @@ export function useYandexMetrika() {
     if (_metrikaInstance) {
         return _metrikaInstance;
     }
-    throw Error('Yandex metrika should be initialized.');
+    else {
+        console.error("Yandex metrika has not been initialized");
+        return (_metrikaInstance = new EmptyYaMetrika());
+    }
 }
