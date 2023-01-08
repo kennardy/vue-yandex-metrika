@@ -29,10 +29,10 @@ const router = new VueRouter({...}) // your routes
 const app = createApp(App)
 
 app.use(initYandexMetrika, {
-	id: XXXXXXXX,
-	router: router,
-	env: process.env.NODE_ENV
-	// other options
+    id: XXXXXXXX,
+    router: router,
+    env: process.env.NODE_ENV
+    // other options
 })
 ```
 
@@ -49,9 +49,9 @@ import { initYandexMetrika } from 'yandex-metrika-vue3';
 const app = createApp(App)
 
 app.use(initYandexMetrika, {
-	id: XXXXXXXX,
-	env: process.env.NODE_ENV,
-	// other options
+    id: XXXXXXXX,
+    env: process.env.NODE_ENV,
+    // other options
 });
 ```
 ---
@@ -60,7 +60,7 @@ Using in template
 
 ```html
 <template>
-	<button @click="$yandexMetrika.hit(path)"></button>
+    <button @click="$yandexMetrika.hit(path)"></button>
 <template>
 ```
 
@@ -73,7 +73,7 @@ import { useYandexMetrika } from 'yandex-metrika-vue3'
 const yandexMetrika = useYandexMetrika()
 
 const foo = () => {
-	yandexMetrika.hit(path)
+    yandexMetrika.hit(path)
 }
 <script>
 ```
@@ -86,17 +86,17 @@ OOptions
  
 // default options
 options: {
-	accurateTrackBounce: true,
-	clickmap: true,
-	defer: false,
-	ecommerce: false,
-	params: [],
-	userParams: {},
-	trackHash: false,
-	trackLinks: true,
-	type: 0,
-	webvisor: false,
-	triggerEvent: false
+    accurateTrackBounce: true,
+    clickmap: true,
+    defer: false,
+    ecommerce: false,
+    params: [],
+    userParams: {},
+    trackHash: false,
+    trackLinks: true,
+    type: 0,
+    webvisor: false,
+    triggerEvent: false
 },
 ```
 
