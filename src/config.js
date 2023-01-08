@@ -1,4 +1,4 @@
-var config = {
+let config = {
     id: null,
     options: {
         accurateTrackBounce: true,
