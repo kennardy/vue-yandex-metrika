@@ -15,8 +15,7 @@
     "lib": [
       "esnext",
       "dom"
-    ],
-    "allowJs": true
+    ]
   },
   "include": [
     "lib/*",
