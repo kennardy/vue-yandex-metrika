@@ -1,5 +1,5 @@
-import { updateConfig, checkConfig, loadScript, createMetrika, startTracking, } from "./helpers";
-import { EmptyYaMetrika } from "./types";
+import { EmptyYaMetrika } from "./empty-ya.js";
+import { updateConfig, checkConfig, loadScript, createMetrika, startTracking, } from "./helpers.js";
 var _metrikaInstance = null;
 export function initYandexMetrika(app, options) {
     app.config.globalProperties.$yandexMetrika = new EmptyYaMetrika();

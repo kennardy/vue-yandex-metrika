@@ -9,9 +9,9 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import config from "./config";
-import { getMetrikaInstance } from "./getMetrikaInstance";
-import { EmptyYaMetrika } from "./types";
+import config from "./config.js";
+import { EmptyYaMetrika } from "./empty-ya.js";
+import { getMetrikaInstance } from "./getMetrikaInstance.js";
 export function updateConfig(params) {
     // Merges default config and plugin options
     var _config = config;

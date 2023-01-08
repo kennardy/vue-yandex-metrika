@@ -1,5 +1,5 @@
 export function getMetrikaInstance(config) {
-    var instance = new Ya.Metrika2(config);
+    var instance = new window.Ya.Metrika2(config);
     setMetrikaInstance(instance, config);
     return instance;
 }
