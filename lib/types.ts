@@ -51,14 +51,14 @@ export interface Config {
 }
 declare global {
   interface Window {
-    yaCounters?: {
-      [key: string]: YaMetrika;
-    };
+    [key: `yaCounter${string}`]: YaMetrika;
+  
     Ya: {
       Metrika2: YaMetrikaInit;
     };
   }
 }
+
 declare interface SubParams {
   callback?: () => void;
   ctx?: any;
