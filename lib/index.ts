@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 import { App } from "vue";
+import { EmptyYaMetrika } from "./empty-ya";
 import {
   updateConfig,
   checkConfig,
@@ -7,7 +8,8 @@ import {
   createMetrika,
   startTracking,
 } from "./helpers";
-import { Config, EmptyYaMetrika, YaMetrika } from "./types";
+
+import type { Config, YaMetrika } from "./types";
 
 let _metrikaInstance: YaMetrika | null = null;
 

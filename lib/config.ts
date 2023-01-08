@@ -1,4 +1,4 @@
-import { Config } from "./types"
+import type { Config } from "./types"
 
 let config: Config = {
     id: null,
@@ -22,4 +22,5 @@ let config: Config = {
     ignoreRoutes: [],
     skipSamePath: true
 }
+
 export default config
