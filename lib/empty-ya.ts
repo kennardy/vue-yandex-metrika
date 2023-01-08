@@ -1,6 +1,6 @@
-import config from "./config";
+import config from "./config.js";
 
-import type { Config, YaMetrika } from "./types";
+import type { Config, YaMetrika } from "./types.js";
 
 export class EmptyYaMetrika implements YaMetrika {
     config: Config;

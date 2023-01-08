@@ -1,15 +1,15 @@
 /* istanbul ignore file */
 import { App } from "vue";
-import { EmptyYaMetrika } from "./empty-ya";
+import { EmptyYaMetrika } from "./empty-ya.js";
 import {
   updateConfig,
   checkConfig,
   loadScript,
   createMetrika,
   startTracking,
-} from "./helpers";
+} from "./helpers.js";
 
-import type { Config, YaMetrika } from "./types";
+import type { Config, YaMetrika } from "./types.js";
 
 let _metrikaInstance: YaMetrika | null = null;
 

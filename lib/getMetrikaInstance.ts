@@ -1,4 +1,4 @@
-import type { Config, YaMetrika } from "./types"
+import type { Config, YaMetrika } from "./types.js"
 
 export function getMetrikaInstance (config: Config | Record<string, any>): YaMetrika {
     const instance = new window.Ya.Metrika2(config)
