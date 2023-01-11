@@ -1,4 +1,5 @@
 import { App } from "vue";
-import { Config, EmptyYaMetrika, YaMetrika } from "./types";
+import { EmptyYaMetrika } from "./empty-ya.js";
+import type { Config, YaMetrika } from "./types.js";
 export declare function initYandexMetrika(app: App, options: Config): void;
 export declare function useYandexMetrika(): YaMetrika | EmptyYaMetrika;

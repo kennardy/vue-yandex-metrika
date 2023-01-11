@@ -7,7 +7,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "target": "es5",
+    "target": "es2015",
     "module": "esnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -15,8 +15,7 @@
     "lib": [
       "esnext",
       "dom"
-    ],
-    "allowJs": true
+    ]
   },
   "include": [
     "lib/*",

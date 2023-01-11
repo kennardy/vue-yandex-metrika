@@ -48,9 +48,7 @@ export interface Config {
 }
 declare global {
     interface Window {
-        yaCounters?: {
-            [key: string]: YaMetrika;
-        };
+        [key: `yaCounter${string}`]: YaMetrika;
         Ya: {
             Metrika2: YaMetrikaInit;
         };
@@ -91,21 +89,6 @@ export declare class YaMetrika {
     userParams(parameters: {
         [key: string]: any;
     }): void;
-}
-export declare class EmptyYaMetrika implements YaMetrika {
-    config: Config;
-    constructor();
-    addFileExtension(): void;
-    extLink(): void;
-    file(): void;
-    getClientID(): void;
-    hit(): void;
-    notBounce(): void;
-    params(): void;
-    reachGoal(): void;
-    replacePhones(): void;
-    setUserID(): void;
-    userParams(): void;
 }
 declare module "@vue/runtime-core" {
     interface VueConstructor {

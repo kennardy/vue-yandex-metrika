@@ -1,8 +1,10 @@
 /* istanbul ignore file */
 import { App } from "vue";
-import config from "./config";
-import { getMetrikaInstance } from "./getMetrikaInstance";
-import { EmptyYaMetrika, YaMetrika } from "./types";
+import config from "./config.js";
+import { EmptyYaMetrika } from "./empty-ya.js";
+import { getMetrikaInstance } from "./getMetrikaInstance.js";
+
+import type { YaMetrika } from "./types.js";
 
 export function updateConfig(params: Record<string, any>) {
   // Merges default config and plugin options

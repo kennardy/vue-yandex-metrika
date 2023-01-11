@@ -1,6 +1,6 @@
 
-<p  align="center">
-<img  src="https://i.imgur.com/iu7VdZ7.png"  />
+<p align="center">
+<img src="https://i.imgur.com/iu7VdZ7.png"  />
 </p>
 
 # Vue Yandex Metrika Plugin with TypeScript
@@ -20,20 +20,20 @@ Pass the `VueRouter` instance to the plugin and let it handle everything for you
 ```javascript
 
 // your main.js
-import { createApp } from  'vue';
-import { createRouter } from  "vue-router";
-import { initYandexMetrika } from  'yandex-metrika-vue3';
-const  router = new  VueRouter({...}) // your routes
+import { createApp } from 'vue';
+import { createRouter } from "vue-router";
+import { initYandexMetrika } from 'yandex-metrika-vue3';
 
-const  app = createApp(App)
+const router = new VueRouter({...}) // your routes
+
+const app = createApp(App)
 
 app.use(initYandexMetrika, {
-id:  XXXXXXXX,
-router:  router,
-env:  process.env.NODE_ENV
-// other options
+    id: XXXXXXXX,
+    router: router,
+    env: process.env.NODE_ENV
+    // other options
 })
-
 ```
 
 ### <a name="manual">Manual tracking</a>
@@ -43,15 +43,15 @@ Works without router: [Metrika API]
 ```javascript
 // your main.js
 
-import { createApp } from  'vue';
-import { initYandexMetrika  from  'yandex-metrika-vue3';
+import { createApp } from 'vue';
+import { initYandexMetrika } from 'yandex-metrika-vue3';
 
-const  app = createApp(App)
+const app = createApp(App)
 
 app.use(initYandexMetrika, {
-id:  XXXXXXXX,
-env:  process.env.NODE_ENV,
-// other options
+    id: XXXXXXXX,
+    env: process.env.NODE_ENV,
+    // other options
 });
 ```
 ---
@@ -66,15 +66,15 @@ Using in template
 
 Using in script
 
-```javascript
+```vue
 <script setup>
-	import { useYandexMetrika } from  'yandex-metrika-vue3'
-	
-	const yandexMetrika = useYandexMetrika()
-	
-	const foo = () => {
-		yandexMetrika.hit(path)
-	}
+import { useYandexMetrika } from 'yandex-metrika-vue3'
+
+const yandexMetrika = useYandexMetrika()
+
+const foo = () => {
+    yandexMetrika.hit(path)
+}
 <script>
 ```
 
@@ -84,35 +84,26 @@ OOptions
  * then add this to the initialization function in main.js
  */
  
- // default options
+// default options
 options: {
-	accurateTrackBounce: true,
-	clickmap: true,
-	defer: false,
-	ecommerce: false,
-	params: [],
-	userParams: {},
-	trackHash: false,
-	trackLinks: true,
-	type: 0,
-	webvisor: false,
-	triggerEvent: false
+    accurateTrackBounce: true,
+    clickmap: true,
+    defer: false,
+    ecommerce: false,
+    params: [],
+    userParams: {},
+    trackHash: false,
+    trackLinks: true,
+    type: 0,
+    webvisor: false,
+    triggerEvent: false
 },
 ```
 
-  
-  
-
 [yandex metrika]: https://metrika.yandex.ru
-
-  
 
 [yarn]: https://yarnpkg.com
 
-  
-
 [npm]: https://npmjs.com
-
-  
 
 [metrika api]: https://yandex.ru/support/metrika/objects/method-reference.html

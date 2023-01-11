@@ -1,20 +1,9 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-import config from "./config";
-import { getMetrikaInstance } from "./getMetrikaInstance";
-import { EmptyYaMetrika } from "./types";
+import config from "./config.js";
+import { EmptyYaMetrika } from "./empty-ya.js";
+import { getMetrikaInstance } from "./getMetrikaInstance.js";
 export function updateConfig(params) {
     // Merges default config and plugin options
-    var _config = config;
+    const _config = config;
     Object.keys(params).forEach(function (key) {
         _config[key] = params[key];
     });
@@ -31,10 +20,9 @@ export function checkConfig() {
         return console.warn("[vue-yandex-metrika] Router is not passed, autotracking is disabled");
     }
 }
-export function loadScript(callback, scriptSrc) {
-    if (scriptSrc === void 0) { scriptSrc = config.scriptSrc; }
+export function loadScript(callback, scriptSrc = config.scriptSrc) {
     var head = document.head || document.getElementsByTagName("head")[0];
-    var script = document.createElement("script");
+    const script = document.createElement("script");
     script.async = true;
     script.charset = "utf-8";
     script.src = scriptSrc;
@@ -44,8 +32,8 @@ export function loadScript(callback, scriptSrc) {
 export function createMetrika(app) {
     if (config.env === "production") {
         // Creates Metrika
-        var init = __assign({ id: config.id }, config.options);
-        var metrika = getMetrikaInstance(init);
+        const init = Object.assign({ id: config.id }, config.options);
+        let metrika = getMetrikaInstance(init);
         return (app.config.globalProperties.$yandexMetrika = metrika);
     }
     else {
