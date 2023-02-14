@@ -61,7 +61,7 @@ Using in template
 ```html
 <template>
     <button @click="$yandexMetrika.hit(path)"></button>
-<template>
+</template>
 ```
 
 Using in script
@@ -75,10 +75,10 @@ const yandexMetrika = useYandexMetrika()
 const foo = () => {
     yandexMetrika.hit(path)
 }
-<script>
+</script>
 ```
 
-OOptions
+Options
 ```javascript
 /* If you want to override the default options,
  * then add this to the initialization function in main.js
