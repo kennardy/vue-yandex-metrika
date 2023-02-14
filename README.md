@@ -1,8 +1,4 @@
 
-<p align="center">
-<img src="https://i.imgur.com/iu7VdZ7.png"  />
-</p>
-
 # Vue Yandex Metrika Plugin with TypeScript
 **yandex-metrika-vue3** allows you to send data about visited pages to [Yandex Metrika].
 ## Installation
