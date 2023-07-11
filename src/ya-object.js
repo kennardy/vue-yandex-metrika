@@ -11,17 +11,17 @@ export class YaMetrikaObject {
         if (!m) {
             return;
         }
-        this.addFileExtension = m.addFileExtension;
-        this.extLink = m.extLink;
-        this.file = m.file;
-        this.getClientID = m.getClientID;
-        this.hit = m.hit;
-        this.notBounce = m.notBounce;
-        this.params = m.params;
-        this.reachGoal = m.reachGoal;
-        this.replacePhones = m.replacePhones;
-        this.setUserID = m.setUserID;
-        this.userParams = m.userParams;
+        this.addFileExtension = m.addFileExtension.bind(m);
+        this.extLink = m.extLink.bind(m);
+        this.file = m.file.bind(m);
+        this.getClientID = m.getClientID.bind(m);
+        this.hit = m.hit.bind(m);
+        this.notBounce = m.notBounce.bind(m);
+        this.params = m.params.bind(m);
+        this.reachGoal = m.reachGoal.bind(m);
+        this.replacePhones = m.replacePhones.bind(m);
+        this.setUserID = m.setUserID.bind(m);
+        this.userParams = m.userParams.bind(m);
     }
     addFileExtension(vals) {
         throw new Error("Method not implemented.");
