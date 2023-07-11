@@ -15,17 +15,17 @@ export class YaMetrikaObject implements YaMetrika {
       return;
     }
 
-    this.addFileExtension = m.addFileExtension.bind(m);
-    this.extLink = m.extLink.bind(m);
-    this.file = m.file.bind(m);
-    this.getClientID = m.getClientID.bind(m);
-    this.hit = m.hit.bind(m);
-    this.notBounce = m.notBounce.bind(m);
-    this.params = m.params.bind(m);
-    this.reachGoal = m.reachGoal.bind(m);
-    this.replacePhones = m.replacePhones.bind(m);
-    this.setUserID = m.setUserID.bind(m);
-    this.userParams = m.userParams.bind(m);
+    this.addFileExtension = m.addFileExtension?.bind(m);
+    this.extLink = m.extLink?.bind(m);
+    this.file = m.file?.bind(m);
+    this.getClientID = m.getClientID?.bind(m);
+    this.hit = m.hit?.bind(m);
+    this.notBounce = m.notBounce?.bind(m);
+    this.params = m.params?.bind(m);
+    this.reachGoal = m.reachGoal?.bind(m);
+    this.replacePhones = m.replacePhones?.bind(m);
+    this.setUserID = m.setUserID?.bind(m);
+    this.userParams = m.userParams?.bind(m);
   }
 
   addFileExtension(vals: string | string[]): void {
