@@ -9,25 +9,25 @@ import {
   startTracking,
 } from "./helpers.js";
 
-import type { Config, YaMetrika } from "./types.js";
+import type { Config } from "./types.js";
+import { YaMetrikaObject } from "./ya-object.js";
 
-let _metrikaInstance: YaMetrika | null = null;
+let _metrikaInstance = new YaMetrikaObject();
 
 export function initYandexMetrika(app: App, options: Config) {
-  app.config.globalProperties.$yandexMetrika = new EmptyYaMetrika();
+  const emptyMetrika = new EmptyYaMetrika();
+  _metrikaInstance.setMetrika(emptyMetrika);
+
+  app.config.globalProperties.$yandexMetrika = _metrikaInstance;
   updateConfig(options);
   checkConfig();
   loadScript(() => {
-    _metrikaInstance = createMetrika(app);
+    const metrika = createMetrika(app);
+    _metrikaInstance.setMetrika(metrika);
     startTracking(_metrikaInstance);
   }, options.scriptSrc);
 }
 
 export function useYandexMetrika() {
-  if (_metrikaInstance) {
-    return _metrikaInstance;
-  } else {
-    console.error("Yandex metrika has not been initialized");
-    return (_metrikaInstance = new EmptyYaMetrika());
-  }
+  return _metrikaInstance;
 }
