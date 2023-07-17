@@ -54,7 +54,7 @@ declare global {
         };
     }
 }
-declare interface SubParams {
+export declare interface SubParams {
     callback?: () => void;
     ctx?: any;
     params?: {

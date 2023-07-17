@@ -1,21 +1,19 @@
 import { EmptyYaMetrika } from "./empty-ya.js";
 import { updateConfig, checkConfig, loadScript, createMetrika, startTracking, } from "./helpers.js";
-let _metrikaInstance = null;
+import { YaMetrikaObject } from "./ya-object.js";
+let _metrikaInstance = new YaMetrikaObject();
 export function initYandexMetrika(app, options) {
-    app.config.globalProperties.$yandexMetrika = new EmptyYaMetrika();
+    const emptyMetrika = new EmptyYaMetrika();
+    _metrikaInstance.setMetrika(emptyMetrika);
+    app.config.globalProperties.$yandexMetrika = _metrikaInstance;
     updateConfig(options);
     checkConfig();
     loadScript(() => {
-        _metrikaInstance = createMetrika(app);
+        const metrika = createMetrika(app);
+        _metrikaInstance.setMetrika(metrika);
         startTracking(_metrikaInstance);
     }, options.scriptSrc);
 }
 export function useYandexMetrika() {
-    if (_metrikaInstance) {
-        return _metrikaInstance;
-    }
-    else {
-        console.error("Yandex metrika has not been initialized");
-        return (_metrikaInstance = new EmptyYaMetrika());
-    }
+    return _metrikaInstance;
 }
