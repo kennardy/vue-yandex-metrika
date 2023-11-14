@@ -24,6 +24,19 @@ export interface Options {
 interface YaOptions extends Options {
   id?: null | string;
 }
+
+/**
+ * Metrika script.
+ *
+ * `tag.js` is version 2,
+ * `watch.js` is version 1
+ *
+ * Differences: https://yandex.com/support/metrica/general/tag-info.html
+ */
+export type ScriptSrcTy =
+  | "https://mc.yandex.ru/metrika/tag.js"
+  | "https://mc.yandex.ru/metrika/watch.js";
+
 export interface Config {
   id?: null | string;
   options?: {
@@ -42,7 +55,7 @@ export interface Config {
     triggerEvent?: boolean;
   };
   router?: null | Router;
-  scriptSrc: "https://mc.yandex.ru/metrika/tag.js";
+  scriptSrc: ScriptSrcTy;
   debug?: boolean;
   env: string;
   ignoreRoutes?: Array<string>;
@@ -52,8 +65,9 @@ export interface Config {
 declare global {
   interface Window {
     [key: `yaCounter${string}`]: YaMetrika;
-  
+
     Ya: {
+      Metrika: YaMetrikaInit;
       Metrika2: YaMetrikaInit;
     };
   }
