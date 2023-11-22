@@ -1,6 +1,6 @@
 {
   "name": "yandex-metrika-vue3",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -52,7 +52,8 @@
     "@types/rimraf": "^3.0.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.4",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue": ">=3.0.0"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
