@@ -51,7 +51,9 @@ export function createMetrika(app: App): YaMetrika {
       id: config.id,
       ...config.options,
     };
-    let metrika = getMetrikaInstance(init);
+    let metrika = getMetrikaInstance(init, {
+      tryMetrika1: config.scriptSrc === "https://mc.yandex.ru/metrika/watch.js",
+    });
     return (app.config.globalProperties.$yandexMetrika = metrika);
   } else {
     // Mock metrika
