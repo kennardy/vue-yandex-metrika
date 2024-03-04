@@ -10,8 +10,7 @@ let _metrikaInstance = new YaMetrikaObject();
 let _app: App | null = null
 
 export function initYandexMetrika(app: App, options: Config) {
-  const emptyMetrika = new EmptyYaMetrika();
-  _metrikaInstance.setMetrika(emptyMetrika);
+  setMetrikaInstance()
   setApp(app)
   updateYandexMerikaByConfig(options)
 }
@@ -38,5 +37,11 @@ export function updateYandexMerikaByConfig(options: Config) {
 }
 
 export function setApp(app: App) {
+  setMetrikaInstance()
   _app = app
+}
+
+function setMetrikaInstance() {
+  const emptyMetrika = new EmptyYaMetrika();
+  _metrikaInstance.setMetrika(emptyMetrika);
 }
