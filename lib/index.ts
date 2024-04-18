@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 import {App} from 'vue'
-import {EmptyYaMetrika} from './empty-ya.js'
-import {checkConfig, createMetrika, loadScript, startTracking, updateConfig,} from './helpers.js'
+import {EmptyYaMetrika} from './empty-ya'
+import {checkConfig, createMetrika, loadScript, startTracking, updateConfig,} from './helpers'
 
-import type {Config} from './types.js'
-import {YaMetrikaObject} from './ya-object.js'
+import type {Config} from './types'
+import {YaMetrikaObject} from './ya-object'
 
 let _metrikaInstance = new YaMetrikaObject();
 let _app: App | null = null
@@ -45,3 +45,5 @@ function setMetrikaInstance() {
   const emptyMetrika = new EmptyYaMetrika();
   _metrikaInstance.setMetrika(emptyMetrika);
 }
+
+export * from './types'

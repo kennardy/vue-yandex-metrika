@@ -1,4 +1,4 @@
-import { Router } from "vue-router";
+import {Router} from 'vue-router'
 
 export interface Options {
   accurateTrackBounce?: boolean;
@@ -86,6 +86,52 @@ export declare interface SubParams {
 interface YaMetrikaInit {
   new (params: YaOptions): YaMetrika;
 }
+
+type DefaultEcommerce = {
+  currencyCode: string
+}
+
+type DefaultEcommerceProduct ={
+  id: string
+  name: string
+  price?: number
+  brand?: string
+  category?: string
+  variant?: string
+  list?: string
+  position?: number
+}
+
+type DefaultEcommerceProductsList = { products: DefaultEcommerceProduct[] }
+
+export type EcommerceImpressions = DefaultEcommerce & {
+  impressions: DefaultEcommerceProductsList
+}
+
+export type EcommerceClick = DefaultEcommerce & {
+  click: DefaultEcommerceProductsList
+}
+
+export type EcommerceAdd = DefaultEcommerce & {
+  add: DefaultEcommerceProductsList
+}
+
+export type EcommerceDetail = DefaultEcommerce & {
+  detail: DefaultEcommerceProductsList
+}
+
+export type EcommercePurchase = DefaultEcommerce & {
+  click: DefaultEcommerceProductsList & {
+    purchase?: {
+      id : string
+    },
+  }
+}
+
+export type EcommerceRemove = DefaultEcommerce & {
+  remove: DefaultEcommerceProductsList
+}
+
 export declare class YaMetrika {
   addFileExtension(vals: string | Array<string>): void;
   extLink(url: string, options?: SubParams): void;

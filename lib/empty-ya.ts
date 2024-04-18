@@ -1,6 +1,15 @@
-import config from "./config.js";
+import config from './config'
 
-import type { Config, YaMetrika } from "./types.js";
+import {
+    Config,
+    EcommerceAdd,
+    EcommerceClick,
+    EcommerceDetail,
+    EcommerceImpressions,
+    EcommercePurchase,
+    EcommerceRemove,
+    YaMetrika
+} from './types'
 
 export class EmptyYaMetrika implements YaMetrika {
     config: Config;
@@ -61,5 +70,41 @@ export class EmptyYaMetrika implements YaMetrika {
       if (this.config.debug) {
         console.log("[vue-yandex-metrika] userParams:", arguments);
       }
+    }
+
+    ecommerceImpressions(data: EcommerceImpressions): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommerceImpressions data:', arguments)
+        }
+    }
+
+    ecommerceClick(data: EcommerceClick): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommerceClick data:', arguments)
+        }
+    }
+
+    ecommerceDetail(data: EcommerceDetail): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommerceDetail data:', arguments)
+        }
+    }
+
+    ecommerceAdd(data: EcommerceAdd): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommerceAdd data:', arguments)
+        }
+    }
+
+    ecommerceRemove(data: EcommerceRemove): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommerceRemove data:', arguments)
+        }
+    }
+
+    ecommercePurchase(data: EcommercePurchase): void {
+        if (this.config.debug) {
+            console.log('[vue-yandex-metrika] EcommercePurchase data:', arguments)
+        }
     }
   }

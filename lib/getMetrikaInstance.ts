@@ -1,6 +1,6 @@
-import { EmptyYaMetrika } from "./empty-ya.js";
+import { EmptyYaMetrika } from "./empty-ya";
 
-import type { Config, YaMetrika } from "./types.js";
+import type { Config, YaMetrika } from "./types";
 
 export function getMetrikaInstance(
   config: Config | Record<string, any>,
