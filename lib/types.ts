@@ -121,8 +121,8 @@ export type EcommerceDetail = DefaultEcommerce & {
 }
 
 export type EcommercePurchase = DefaultEcommerce & {
-  click: DefaultEcommerceProductsList & {
-    purchase?: {
+  purchase: DefaultEcommerceProductsList & {
+    actionField?: {
       id : string
     },
   }
