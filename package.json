@@ -12,7 +12,7 @@
     "clean": "rimraf src && rimraf dist",
     "prepublish": "npm run clean && npm run build",
     "prepare": "npm run build",
-    "build": "tsc"
+    "build": "tsc && tsc-alias"
   },
   "repository": {
     "type": "git",
@@ -51,9 +51,10 @@
     "@types/node": "^18.11.18",
     "@types/rimraf": "^3.0.2",
     "rimraf": "^3.0.2",
+    "tsc-alias": "1.8.10",
     "typescript": "^4.9.4",
-    "vue-router": "^4.1.6",
-    "vue": ">=3.0.0"
+    "vue": ">=3.0.0",
+    "vue-router": "^4.1.6"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
