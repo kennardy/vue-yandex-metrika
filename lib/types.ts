@@ -160,7 +160,7 @@ export declare class YaMetrika {
   userParams(parameters: { [key: string]: any }): void;
 }
 
-declare module "@vue/runtime-core" {
+declare module "vue" {
   interface VueConstructor {
     $yandexMetrika: YaMetrika;
   }
