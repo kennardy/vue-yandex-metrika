@@ -160,6 +160,11 @@ export declare class YaMetrika {
   userParams(parameters: { [key: string]: any }): void;
 }
 
+/**
+ * NOTE: Used to be `@vue/runtime-core` but it break types from time to time. Then, in Vue docs, we started recommending
+ * to use `vue` instead of `@vue/runtime-core` but that broke others' types so we reverted it. Now, local types do not
+ * work if we use `@vue/runtime-core` so we are using `vue` again.
+ */
 declare module "vue" {
   interface VueConstructor {
     $yandexMetrika: YaMetrika;
