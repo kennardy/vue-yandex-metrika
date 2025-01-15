@@ -20,31 +20,31 @@ export class YaMetrikaObject implements YaMetrika {
     }
 
     addFileExtension(vals: string | string[]): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     extLink(url: string, options?: SubParams | undefined): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     file(url: string, options?: SubParams | undefined): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     getClientID(callback: (clientID: string) => void): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     hit(url: string, options?: SubParams | undefined): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     notBounce(options?: { callback: () => void; ctx?: any } | undefined): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     params(parameters: any[] | { [key: string]: any }): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     reachGoal(
@@ -55,19 +55,19 @@ export class YaMetrikaObject implements YaMetrika {
         callback?: (() => void) | undefined,
         ctx?: any
     ): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     replacePhones(): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     setUserID(userID: string): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     userParams(parameters: { [key: string]: any }): void {
-        throw new Error('Method not implemented.')
+        console.error('Method not implemented.')
     }
 
     ecommerceImpressions(data: EcommerceImpressions): void {
