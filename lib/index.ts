@@ -19,7 +19,7 @@ export function useYandexMetrika() {
   return _metrikaInstance;
 }
 
-export function updateYandexMerikaByConfig(options: Config) {
+export function updateYandexMerikaByConfig(options: Config, callbackOnReady?: () => void) {
   if (!_app) {
     throw Error('Update available after init')
   }
@@ -33,6 +33,7 @@ export function updateYandexMerikaByConfig(options: Config) {
     const metrika = createMetrika(_app)
     _metrikaInstance.setMetrika(metrika)
     startTracking(_metrikaInstance)
+    if (callbackOnReady) callbackOnReady()
   }, options.scriptSrc)
 }
 
